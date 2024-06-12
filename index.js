@@ -32,7 +32,6 @@ const fetchBooks = () => {
         price.innerText = libro.price + "$";
 
         const scartaBtn = document.createElement("button");
-        scartaBtn.classList.add("btn");
         scartaBtn.classList.add("btn", "btn-primary");
         scartaBtn.innerHTML = "scarta";
         scartaBtn.addEventListener("click", (event) => {
@@ -40,7 +39,7 @@ const fetchBooks = () => {
         });
 
         const addCartBtn = document.createElement("button");
-        addCartBtn.classList.add("btn", "btn-secondary");
+        addCartBtn.classList.add("btn", "btn-success");
         addCartBtn.innerHTML = "Add to Cart";
 
         addCartBtn.addEventListener("click", (event) => {
@@ -51,7 +50,6 @@ const fetchBooks = () => {
           cart.appendChild(cartList);
           const carrelloList = document.getElementById("carrelloList");
           carrelloList.appendChild(cart);
-          localStorage.setItem("cart", JSON.stringify(cart));
         });
 
         card.appendChild(img);
