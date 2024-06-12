@@ -3,10 +3,12 @@
 }
 body{
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-color: rgb(32, 33, 35);
     
 }
 .card{
     margin-top: 50px;
+    
 }
 .card-title{
     margin-top: 30px;
@@ -16,4 +18,13 @@ body{
 .card-text{
     font-size: 1.5rem;
     margin-left: 200px;
+}
+
+#cart{
+    text-decoration: none;
+    margin-left: 70vw;
+}
+img{
+    max-height: 400px;
+    object-fit:fill
 }
