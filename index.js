@@ -42,14 +42,13 @@ const fetchBooks = () => {
         addCartBtn.classList.add("btn", "btn-success");
         addCartBtn.innerHTML = "Add to Cart";
 
+        const carrello = [];
+
         addCartBtn.addEventListener("click", (event) => {
-          const cartList = document.createElement("li");
-          const cart = document.createElement("ul");
-          cart.classList.add("carrello");
-          cartList.innerText = libro.title;
-          cart.appendChild(cartList);
-          const carrelloList = document.getElementById("carrelloList");
-          carrelloList.appendChild(cart);
+          const cart = JSON.parse(localStorage.getItem("cartItems")) || [];
+          cart.push(libro);
+          localStorage.setItem("cartItems", JSON.stringify(cart));
+          addToCartDisplay(libro);
         });
 
         card.appendChild(img);
@@ -67,6 +66,25 @@ const fetchBooks = () => {
     });
 };
 
+const addToCartDisplay = (libro) => {
+  const listCart = document.createElement("li");
+  listCart.innerText = `${libro.title} - ${libro.price}$`;
+  const dropCart = document.getElementById("dropCart");
+  dropCart.appendChild(listCart);
+};
+
+const loadCartFromStorage = () => {
+  const cartData = localStorage.getItem("cartItems");
+  let cart = [];
+  if (cartData) {
+    cart = JSON.parse(cartData);
+  }
+  cart.forEach((libro) => {
+    addToCartDisplay(libro);
+  });
+};
+
 window.addEventListener("DOMContentLoaded", () => {
   fetchBooks();
+  loadCartFromStorage();
 });

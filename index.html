@@ -17,7 +17,18 @@
       <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
         <div class="container-fluid">
           <a class="navbar-brand" href="#"><h2>Libreria</h2></a>
-          <a href="./cart.html" class="navbar-nav me-auto mb-2 mb-lg-0"><h4 class="text-white">Carrello</h4></a>
+
+          <div class="btn-group dropstart">
+            <button
+              class="btn btn-secondary dropdown-toggle"
+              type="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Carrello
+            </button>
+            <ul class="dropdown-menu" id="dropCart"></ul>
+          </div>
         </div>
       </nav>
       <div class="container">
